@@ -42,5 +42,5 @@ Each entry lists colors, silhouette, and the 2–3 signature features that must 
 - **Silhouette:** a person a head taller than the pigs. Shoulder-length dark hair pulled back with side-swept bangs, a loose comfy pajama top, and long pajama pants.
 - **Signature features:**
   1. **Dark hair** framing the face, with side-swept bangs.
-  2. **Glasses** (two dark rectangles across the eyes) and a playful smile.
+  2. A playful smile and simple dark eyes (glasses were dropped at pixel scale: the grey frames read as a mask on her face).
   3. **Light-blue patterned pajamas.** Bonus detail: she **loves cheese**, which is why cheese is the collectible.

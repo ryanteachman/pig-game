@@ -148,6 +148,9 @@ export default class CavesScene extends BaseScene {
         ['stoneAwake', 'The doors here only open when every glowing plate has something heavy on it. Like... me.'],
         ['mrpig', 'Push you? Are you sure?'],
         ['stoneAwake', 'I love being pushed. It is like a little ride. But it makes me... very... sleepy... zzz.'],
+        ['mrpig', '(Hee hee. Even a cozy cave has room for a little mischief. Gentle mischief. She is my friend.)'],
+        ['mrpig', '(A bat napping upside down in a hat... a SNORT would wake him right up.)'],
+        ['mrpig', '(And one of these crystals is just begging for a mustache.)'],
       );
     }
     await this.say(lines);

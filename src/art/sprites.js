@@ -227,11 +227,11 @@ const annarose0 = [
   '...xxxxxxfffx...',
   '...xxxffffffx...',
   '...xffffffffx...',
-  '...xSxSSSSxSx...',
-  '...xSSSffSSSx...',
+  '...xffffffffx...',
+  '...xfkffffkfx...',
   '...xfffnnfffx...',
   '...xxffffffxx...',
-  '...sxllllllxs...',
+  '...xxllllllxx...',
   '..llllwlllwlll..',
   '..lwllllllllwl..',
   '..llllllwlllll..',
@@ -253,8 +253,8 @@ const annarose1 = annarose0.map((r, i) => {
   return r;
 });
 const annaroseLaugh = annarose0.map((r, i) => {
-  if (i === 7) return '...xSfSSSSfSx...';
-  if (i === 8) return '...xSkSffSkSx...';
+  if (i === 7) return '...xfkffffkfx...';
+  if (i === 8) return '...xffffffffx...';
   if (i === 9) return '...xffnnnnffx...';
   return r;
 });

@@ -75,6 +75,9 @@ export default class CastleScene extends Overworld {
       setFlag('castleIntro');
       await this.talk([
         ['mrpig', "Sir Oinks A Lot's castle. Guards everywhere... Hee hee. Sneaky time."],
+        ['mrpig', '(Four perfect pranks are hiding in here. Sir Oinks will never see them coming.)'],
+        ['mrpig', '(His shiny armor... his heroic banner... his precious helmet... and his royal throne.)'],
+        ['mrpig', '(The armory has a vat of PINK paint. And that well out here looks like a great hiding spot.)'],
         ['stoneAwake', 'Stay out of their yellow vision cones. If one is coming... a SNORT behind him makes him look away.'],
       ]);
       this.toast.show('Avoid the vision cones!', COLORS.gold);

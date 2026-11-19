@@ -41,7 +41,8 @@ export default class CastleScene extends Overworld {
     this.createWorld({ map: CASTLE_ROOMS[this.roomName], area: 'castle', room: this.roomName, spawn: this.entry, music: 'castle' });
     this.coneGfx = this.add.graphics().setDepth(5);
     this.guards = [];
-    for (const g of GUARDS[this.roomName]) this.addGuard(g);
+    // Once Sir Oinks is beaten the guards stand down.
+    if (!state.done.castle) for (const g of GUARDS[this.roomName]) this.addGuard(g);
     this[`setup_${this.roomName}`]();
     this.arrival(data);
   }

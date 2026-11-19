@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { CAVE_ROOMS } from '../src/levels/caves.js';
 import { allCheeseIds } from '../src/levels/cheese.js';
 import { verify } from '../src/levels/sokoban.js';
+import { HUB_MAP, FARM_MAP, CASTLE_ROOMS, LEGEND, cheeseSpots } from '../src/levels/maps.js';
 
 const FINAL = 'Annarose I love you so much. Happy Birthday.';
 fs.mkdirSync('preview/scenes', { recursive: true });
@@ -74,6 +75,31 @@ async function shot(page, name) {
   await page.waitForTimeout(400);
   await page.screenshot({ path: `preview/scenes/${name}.png` });
 }
+
+// Flood fill over walkable tiles: every overworld cheese must be reachable from the entrance.
+function reachable(rows, sx, sy) {
+  const seen = new Set([`${sx},${sy}`]);
+  const q = [[sx, sy]];
+  while (q.length) {
+    const [x, y] = q.shift();
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const nx = x + dx, ny = y + dy, ch = rows[ny]?.[nx];
+      if (!ch || seen.has(`${nx},${ny}`)) continue;
+      if (ch !== '*' && ch !== '$' && (LEGEND[ch].solid || LEGEND[ch].prop)) continue;
+      seen.add(`${nx},${ny}`);
+      q.push([nx, ny]);
+    }
+  }
+  return seen;
+}
+
+test('every overworld cheese is reachable', () => {
+  const maps = [['hub', HUB_MAP, 5, 5], ['farm', FARM_MAP, 1, 10], ...Object.entries(CASTLE_ROOMS).map(([k, r]) => [k, r, 9, 5])];
+  for (const [name, rows, sx, sy] of maps) {
+    const seen = reachable(rows, sx, sy);
+    for (const c of cheeseSpots(name, 'x', rows)) expect(seen.has(`${c.x},${c.y}`), `${name} cheese at ${c.x},${c.y}`).toBe(true);
+  }
+});
 
 test('data: 30 cheeses, solvable caves with stored solutions', () => {
   expect(allCheeseIds()).toHaveLength(30);

@@ -6,8 +6,9 @@ import path from 'node:path';
 const dist = path.resolve('dist');
 const refs = path.resolve('assets/references');
 const refNames = new Set();
+let refCount = 0;
 if (fs.existsSync(refs)) {
-  for (const f of walk(refs)) refNames.add(path.basename(f).toLowerCase());
+  for (const f of walk(refs)) { refNames.add(path.basename(f).toLowerCase()); refCount++; }
 }
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]));
@@ -24,4 +25,4 @@ if (bad.length) {
   console.error('dist/ check FAILED:\n  ' + bad.join('\n  '));
   process.exit(1);
 }
-console.log(`dist/ check passed: ${walk(dist).length} files, no reference photos or images (${refNames.size} private references excluded).`);
+console.log(`dist/ check passed: ${walk(dist).length} files, no reference photos or images (${refCount} private reference files kept out).`);

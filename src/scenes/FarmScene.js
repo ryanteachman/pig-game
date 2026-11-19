@@ -180,7 +180,7 @@ export default class FarmScene extends Overworld {
 
   async onSnort(x, y) {
     const bp = this.bigPig;
-    if (this.bigPigBusy || Math.hypot(bp.x - x, bp.y - 16 - y) > 50) return;
+    if (this.bigPigBusy || Math.hypot(bp.x - x, bp.y - 16 - y) > 60) return;
     this.bigPigBusy = true;
     await this.cutscene(async () => {
       const y0 = bp.y;

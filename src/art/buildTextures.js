@@ -29,6 +29,13 @@ export function buildTextures(scene) {
   addRect(scene, 'px', 1, 1, '#ffffff');
   const confetti = ['e', 'y', 'b', 'p', 'h', 'u', 'o', 'i'];
   confetti.forEach((c, i) => addRect(scene, `confetti_${i}`, 2, 3, PALETTE[c]));
+  const sheet = scene.textures.createCanvas('confetti', confetti.length * 2, 3);
+  confetti.forEach((c, i) => {
+    sheet.getContext().fillStyle = PALETTE[c];
+    sheet.getContext().fillRect(i * 2, 0, 2, 3);
+    sheet.add(i, 0, i * 2, 0, 2, 3);
+  });
+  sheet.refresh();
   addRect(scene, 'dot_mud', 2, 2, PALETTE.m);
   addRect(scene, 'dot_water', 2, 2, PALETTE.l);
   addRect(scene, 'dot_white', 2, 2, PALETTE.w);

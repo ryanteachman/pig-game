@@ -166,16 +166,16 @@ export const CASTLE_ROOMS = {
 export const FINALE_MAP = [
   'wwwwwwwwwwwwwwwwwwww',
   'wwwwwwwwwwwwwwwwwwww',
-  'wooooooooooooooooow',
   'woooooooooooooooooow',
   'woooooooooooooooooow',
-  'woooooooouuooooooow',
-  'woooooooouuooooooow',
+  'woooooooooooooooooow',
+  'woooooooouuoooooooow',
+  'woooooooouuoooooooow',
   'woooooooooooooooooow',
   'woooooooooooooooooow',
   'woooooooooooooooooow',
   'wwwwwwwwwwwwwwwwwwww',
-].map((r) => r.padEnd(20, 'w').slice(0, 20));
+];
 
 // Cheese ids are "<area>-<room>-<index>" in reading order.
 export function cheeseSpots(area, room, rows) {

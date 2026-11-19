@@ -56,8 +56,11 @@ export default class TitleScene extends BaseScene {
     for (let x = 0; x < 320; x++) g.fillRect(x, 120 + Math.round(Math.sin(x / 22 + 2) * 4), 1, 60);
     // little houses on the hill
     [[40, 'roof'], [260, 'roofBlue'], [290, 'roofPink']].forEach(([x, roof]) => {
-      this.add.image(x, 98, `t_${roof}`).setOrigin(0.5, 1);
-      this.add.image(x, 112, 't_door').setOrigin(0.5, 1).setScale(0.75, 0.9);
+      this.add.image(x, 112, 't_houseWall').setOrigin(0.5, 1);
+      this.add.image(x - 16, 112, 't_houseWall').setOrigin(0.5, 1);
+      this.add.image(x, 112, 't_door').setOrigin(0.5, 1).setScale(0.6, 0.75);
+      this.add.image(x, 96, `t_${roof}`).setOrigin(0.5, 1);
+      this.add.image(x - 16, 96, `t_${roof}`).setOrigin(0.5, 1);
     });
     this.add.image(20, 128, 't_tree').setOrigin(0.5, 1);
     this.add.image(300, 136, 't_tree').setOrigin(0.5, 1);

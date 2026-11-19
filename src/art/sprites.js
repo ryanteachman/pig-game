@@ -200,6 +200,11 @@ const oinksSide0 = [
 ];
 const oinksSide1 = oinksSide0.map((r, i) => (i === 14 ? '...qq....qq.....' : r));
 const PINK_ARMOR = { s: 'P', S: 'q', w: 'w' };
+const oinksUp0 = oinksDown0.map((r, i) => {
+  if (i === 7 || i === 8) return '.pppppppppppppp.';
+  if (i === 9 || i === 10) return '.cccccccccccccc.';
+  return r;
+});
 
 // ---------------------------------------------------------------- Villagers & guards
 const NO_LETTER = { w: 'b' };
@@ -1072,6 +1077,8 @@ export const SPRITES = {
   oinks_down_1: oinksDown1,
   oinks_side_0: oinksSide0,
   oinks_side_1: oinksSide1,
+  oinks_up: oinksUp0,
+  oinks_pink_up: remap(oinksUp0, PINK_ARMOR),
   oinks_pink_down_0: remap(oinksDown0, PINK_ARMOR),
   oinks_pink_down_1: remap(oinksDown1, PINK_ARMOR),
   oinks_pink_side_0: remap(oinksSide0, PINK_ARMOR),

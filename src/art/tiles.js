@@ -203,7 +203,7 @@ const rug = [
   'oeeeeeeeeeeeeeeo',
   'oooooooooooooooo',
 ];
-const castleFloor = overlay(speckle('s', [['w', 5], ['S', 5]], 111), [
+const castleFloor = overlay(speckle('s', [['w', 2], ['S', 3]], 111), [
   'SSSSSSSSSSSSSSSS',
   'S.......S.......',
   'S.......S.......',
@@ -358,13 +358,13 @@ const caveDoorOpen = overlay(caveFloor, [
   'kkkkkkkkkkkkkkkk',
   'kUUUUUUUUUUUUUUk',
   'kU............Uk',
-  'kU.....yy.....Uk',
-  'kU....y..y....Uk',
-  'kU.......y....Uk',
-  'kU......y.....Uk',
-  'kU.....y......Uk',
   'kU............Uk',
-  'kU.....y......Uk',
+  'kU.....ii.....Uk',
+  'kU....i..i....Uk',
+  'kU............Uk',
+  'kU............Uk',
+  'kU............Uk',
+  'kU............Uk',
   'kU............Uk',
   'kU............Uk',
   'kU............Uk',

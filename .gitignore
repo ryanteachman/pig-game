@@ -1,0 +1,6 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+# Private reference photos: never commit, bundle, or deploy
+assets/references/

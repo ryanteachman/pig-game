@@ -302,14 +302,20 @@ test('Finale reaches the final message with the exact text', async ({ page }) =>
   await page.keyboard.press('KeyC'); // all cheese -> bonus cuddle path
   await page.waitForTimeout(200);
   await startScene(page, 'Finale');
-  let party = false;
+  let party = false, dark = false;
   for (let i = 0; i < 1200; i++) {
-    const st = await scene(page, (s) => ({ done: s.finalDone, d: s.dialogue.active, party: !!s.confetti }));
+    const st = await scene(page, (s) => ({ done: s.finalDone, d: s.dialogue.active, party: !!s.confetti, line: s.dialogue.text.text }));
     if (st.done) break;
+    if (!dark && st.line.includes('turned off the lights')) {
+      dark = true;
+      await page.waitForTimeout(1200); // let the line finish typing
+      await shot(page, '08-finale-lights-out');
+    }
     if (st.party && !party) { party = true; await shot(page, '08-finale-party'); }
     if (st.d) await page.keyboard.press('Space');
     await page.waitForTimeout(110);
   }
+  expect(dark).toBe(true);
   expect(await scene(page, (s) => s.finalDone)).toBe(true);
   const text = await scene(page, (s) => s.finalText.text);
   expect(text).toBe(FINAL);

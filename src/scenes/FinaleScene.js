@@ -158,7 +158,7 @@ export default class FinaleScene extends BaseScene {
     this.snortFx(this.pig);
     await this.wait(300);
     sfx.lightsOut();
-    const dark = this.add.rectangle(0, 0, 320, 180, 0x050307, 1).setOrigin(0).setDepth(2500);
+    const dark = this.add.rectangle(0, 0, 320, 180, 0x050307, 1).setOrigin(0).setDepth(1990); // above the HUD (1500), below the dialogue box (2000)
     await this.wait(600);
     await this.say([
       ['anna', 'Hey! Who turned off the lights?!'],
